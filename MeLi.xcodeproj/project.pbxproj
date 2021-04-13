@@ -3,18 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A6E3B111CE69AE14A8E10FA /* Pods_MeLi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16255BE91A2E6EFA08766DFE /* Pods_MeLi.framework */; };
 		BE6668DC2623F0830013AB1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668DB2623F0830013AB1C /* AppDelegate.swift */; };
 		BE6668DE2623F0830013AB1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668DD2623F0830013AB1C /* SceneDelegate.swift */; };
-		BE6668E02623F0830013AB1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668DF2623F0830013AB1C /* ViewController.swift */; };
 		BE6668E32623F0830013AB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE6668E12623F0830013AB1C /* Main.storyboard */; };
 		BE6668E52623F0830013AB1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE6668E42623F0830013AB1C /* Assets.xcassets */; };
 		BE6668E82623F0830013AB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE6668E62623F0830013AB1C /* LaunchScreen.storyboard */; };
 		BE6668F32623F0840013AB1C /* MeLiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668F22623F0840013AB1C /* MeLiTests.swift */; };
 		BE6668FE2623F0840013AB1C /* MeLiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668FD2623F0840013AB1C /* MeLiUITests.swift */; };
+		BED65AF12623FE1D00F0FC4F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11440601261EFFED8BFF7A53 /* Pods-MeLi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeLi.release.xcconfig"; path = "Target Support Files/Pods-MeLi/Pods-MeLi.release.xcconfig"; sourceTree = "<group>"; };
+		16255BE91A2E6EFA08766DFE /* Pods_MeLi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeLi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A484A19AD11C6B05FB5F280B /* Pods-MeLi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeLi.debug.xcconfig"; path = "Target Support Files/Pods-MeLi/Pods-MeLi.debug.xcconfig"; sourceTree = "<group>"; };
 		BE6668D82623F0830013AB1C /* MeLi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeLi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE6668DB2623F0830013AB1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE6668DD2623F0830013AB1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BE6668DF2623F0830013AB1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BE6668E22623F0830013AB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE6668E42623F0830013AB1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE6668E72623F0830013AB1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		BE6668F92623F0840013AB1C /* MeLiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeLiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE6668FD2623F0840013AB1C /* MeLiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiUITests.swift; sourceTree = "<group>"; };
 		BE6668FF2623F0840013AB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A6E3B111CE69AE14A8E10FA /* Pods_MeLi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0ADEE6F7B2606AB36906D60A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16255BE91A2E6EFA08766DFE /* Pods_MeLi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A70BABA09C41ABFD19A44EA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A484A19AD11C6B05FB5F280B /* Pods-MeLi.debug.xcconfig */,
+				11440601261EFFED8BFF7A53 /* Pods-MeLi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BE6668CF2623F0830013AB1C = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +105,8 @@
 				BE6668F12623F0840013AB1C /* MeLiTests */,
 				BE6668FC2623F0840013AB1C /* MeLiUITests */,
 				BE6668D92623F0830013AB1C /* Products */,
+				A70BABA09C41ABFD19A44EA7 /* Pods */,
+				0ADEE6F7B2606AB36906D60A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +125,11 @@
 			children = (
 				BE6668DB2623F0830013AB1C /* AppDelegate.swift */,
 				BE6668DD2623F0830013AB1C /* SceneDelegate.swift */,
-				BE6668DF2623F0830013AB1C /* ViewController.swift */,
 				BE6668E12623F0830013AB1C /* Main.storyboard */,
 				BE6668E42623F0830013AB1C /* Assets.xcassets */,
 				BE6668E62623F0830013AB1C /* LaunchScreen.storyboard */,
 				BE6668E92623F0830013AB1C /* Info.plist */,
+				BED65AEF2623FA7C00F0FC4F /* ViewControllers */,
 			);
 			path = MeLi;
 			sourceTree = "<group>";
@@ -128,6 +152,14 @@
 			path = MeLiUITests;
 			sourceTree = "<group>";
 		};
+		BED65AEF2623FA7C00F0FC4F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +167,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE6669022623F0840013AB1C /* Build configuration list for PBXNativeTarget "MeLi" */;
 			buildPhases = (
+				A96D37FD5046B13E33468EEB /* [CP] Check Pods Manifest.lock */,
 				BE6668D42623F0830013AB1C /* Sources */,
 				BE6668D52623F0830013AB1C /* Frameworks */,
 				BE6668D62623F0830013AB1C /* Resources */,
+				82589F6CC3BCECC1F7B3D9E3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,14 +287,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		82589F6CC3BCECC1F7B3D9E3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MeLi/Pods-MeLi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MeLi/Pods-MeLi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MeLi/Pods-MeLi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A96D37FD5046B13E33468EEB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeLi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BE6668D42623F0830013AB1C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE6668E02623F0830013AB1C /* ViewController.swift in Sources */,
 				BE6668DC2623F0830013AB1C /* AppDelegate.swift in Sources */,
 				BE6668DE2623F0830013AB1C /* SceneDelegate.swift in Sources */,
+				BED65AF12623FE1D00F0FC4F /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +509,7 @@
 		};
 		BE6669032623F0840013AB1C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A484A19AD11C6B05FB5F280B /* Pods-MeLi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -452,6 +529,7 @@
 		};
 		BE6669042623F0840013AB1C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11440601261EFFED8BFF7A53 /* Pods-MeLi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
