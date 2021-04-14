@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var logoTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tableView: UITableView!
     
     private let rxBag = DisposeBag()
     
