@@ -26,20 +26,19 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let rxBag = DisposeBag()
+    private var items : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUI()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        showInitilAnimations()
         subscribeRxElements()
+        showInitilAnimations()
     }
     
     private func setupUI() {
+        
+        tableView.register(nibName: "ProductCell")
         
         findLabel.alpha = 0
         searchLabel.alpha = 0
@@ -61,11 +60,18 @@ class HomeViewController: UIViewController {
                 self.searchProducts(searchText: text)
                 
             }).disposed(by: rxBag)
+        
+        items.bind(to: tableView.rx.items(cellIdentifier: "ProductCell")) { [weak self] row, model, cell in
+            
+            guard let self = self, let cell = cell as? ProductCell else { return }
+            self.tableView.rowHeight =  120
+            cell.selectionStyle = .none
+            cell.product = model
+                           
+        }.disposed(by: rxBag)
     }
     
     private func searchProducts(searchText: String) {
-        
-        print("Searching for products")
         
         Api.searchProducts(searchText: searchText) { (response, products) in
             
@@ -73,6 +79,8 @@ class HomeViewController: UIViewController {
             
             case .ok:
                 print("ok")
+                self.items.accept(products)
+                self.tableView.alpha = 1
             case .error:
                 print("error")
             }

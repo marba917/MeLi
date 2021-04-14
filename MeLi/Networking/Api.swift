@@ -25,7 +25,9 @@ class Api {
     
     static func searchProducts(searchText: String, completionBlock: @escaping (ResponseType,[Product]) -> Void) {
         
-        guard let url = URL(string: "\(Endpoints.search)\(searchText)") else {
+        let string = searchText.replacingOccurrences(of: " ", with: "+")
+        
+        guard let url = URL(string: "\(Endpoints.search)\(string)") else {
             
             completionBlock(.error,[])
             return
