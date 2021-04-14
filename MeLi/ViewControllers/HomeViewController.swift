@@ -80,7 +80,11 @@ class HomeViewController: UIViewController {
             case .ok:
                 print("ok")
                 self.items.accept(products)
-                self.tableView.alpha = 1
+                
+                DispatchQueue.main.async {
+                    self.tableView.alpha = 1
+                }
+                
             case .error:
                 print("error")
             }
