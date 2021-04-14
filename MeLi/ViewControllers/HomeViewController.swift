@@ -65,7 +65,18 @@ class HomeViewController: UIViewController {
     
     private func searchProducts(searchText: String) {
         
-       
+        print("Searching for products")
+        
+        Api.searchProducts(searchText: searchText) { (response, products) in
+            
+            switch response {
+            
+            case .ok:
+                print("ok")
+            case .error:
+                print("error")
+            }
+        }
     }
 }
 
