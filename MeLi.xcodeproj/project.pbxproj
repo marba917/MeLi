@@ -15,6 +15,9 @@
 		BE6668E82623F0830013AB1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE6668E62623F0830013AB1C /* LaunchScreen.storyboard */; };
 		BE6668F32623F0840013AB1C /* MeLiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668F22623F0840013AB1C /* MeLiTests.swift */; };
 		BE6668FE2623F0840013AB1C /* MeLiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668FD2623F0840013AB1C /* MeLiUITests.swift */; };
+		BEBE068626268630004EAE02 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE068526268630004EAE02 /* UIView.swift */; };
+		BEBE068C26268E79004EAE02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE068B26268E79004EAE02 /* Constants.swift */; };
+		BEBE069426269357004EAE02 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE069326269357004EAE02 /* UIViewController.swift */; };
 		BED65AF12623FE1D00F0FC4F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,9 @@
 		BE6668F92623F0840013AB1C /* MeLiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeLiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE6668FD2623F0840013AB1C /* MeLiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiUITests.swift; sourceTree = "<group>"; };
 		BE6668FF2623F0840013AB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEBE068526268630004EAE02 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		BEBE068B26268E79004EAE02 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BEBE069326269357004EAE02 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +136,8 @@
 				BE6668E62623F0830013AB1C /* LaunchScreen.storyboard */,
 				BE6668E92623F0830013AB1C /* Info.plist */,
 				BED65AEF2623FA7C00F0FC4F /* ViewControllers */,
+				BEBE068426268620004EAE02 /* Extensions */,
+				BEBE068A26268E63004EAE02 /* Utils */,
 			);
 			path = MeLi;
 			sourceTree = "<group>";
@@ -150,6 +158,23 @@
 				BE6668FF2623F0840013AB1C /* Info.plist */,
 			);
 			path = MeLiUITests;
+			sourceTree = "<group>";
+		};
+		BEBE068426268620004EAE02 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BEBE069326269357004EAE02 /* UIViewController.swift */,
+				BEBE068526268630004EAE02 /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BEBE068A26268E63004EAE02 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BEBE068B26268E79004EAE02 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		BED65AEF2623FA7C00F0FC4F /* ViewControllers */ = {
@@ -334,6 +359,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEBE068C26268E79004EAE02 /* Constants.swift in Sources */,
+				BEBE068626268630004EAE02 /* UIView.swift in Sources */,
+				BEBE069426269357004EAE02 /* UIViewController.swift in Sources */,
 				BE6668DC2623F0830013AB1C /* AppDelegate.swift in Sources */,
 				BE6668DE2623F0830013AB1C /* SceneDelegate.swift in Sources */,
 				BED65AF12623FE1D00F0FC4F /* HomeViewController.swift in Sources */,
@@ -516,6 +544,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C4BPCW9KZS;
 				INFOPLIST_FILE = MeLi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,6 +565,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C4BPCW9KZS;
 				INFOPLIST_FILE = MeLi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
