@@ -27,6 +27,7 @@
 		BEBE06C02626C16E004EAE02 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06BF2626C16E004EAE02 /* UITableView.swift */; };
 		BEBE06C52626C39B004EAE02 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06C42626C39B004EAE02 /* Double.swift */; };
 		BED65AF12623FE1D00F0FC4F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */; };
+		BEFA0A962627FE8800D1DE17 /* lottie-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BEFA0A952627FE8800D1DE17 /* lottie-loading.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		BEBE06BF2626C16E004EAE02 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		BEBE06C42626C39B004EAE02 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BEFA0A952627FE8800D1DE17 /* lottie-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lottie-loading.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				BE6668DA2623F0830013AB1C /* MeLi */,
+				BEFA0A942627FE7600D1DE17 /* Resources */,
 				BE6668F12623F0840013AB1C /* MeLiTests */,
 				BE6668FC2623F0840013AB1C /* MeLiUITests */,
 				BE6668D92623F0830013AB1C /* Products */,
@@ -233,6 +236,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		BEFA0A942627FE7600D1DE17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BEFA0A952627FE8800D1DE17 /* lottie-loading.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE6668E82623F0830013AB1C /* LaunchScreen.storyboard in Resources */,
+				BEFA0A962627FE8800D1DE17 /* lottie-loading.json in Resources */,
 				BEBE06B12626BD74004EAE02 /* ProductCell.xib in Resources */,
 				BE6668E52623F0830013AB1C /* Assets.xcassets in Resources */,
 				BE6668E32623F0830013AB1C /* Main.storyboard in Resources */,

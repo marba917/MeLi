@@ -49,5 +49,21 @@ extension UIViewController {
             return topLayoutGuide.length
         }
     }
+    
+    
+    /**
+         Shows an alert with the default OS design
+    */
+    
+    func showAlertDefault (title: String?, message: String) {
+        
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message:  message, preferredStyle: .alert)
+            alertController.view.tintColor = .black
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(ok)
+            self.present(alertController, animated: true, completion:nil)
+        }
+    }
 
 }

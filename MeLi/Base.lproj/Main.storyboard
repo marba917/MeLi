@@ -84,23 +84,44 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eUm-va-5QU" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="57" y="348" width="300" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="kQ9-8Q-ljv"/>
+                                    <constraint firstAttribute="width" constant="300" id="wkc-eZ-MG6"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="busca   - " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5g-nv-sWZ">
                                 <rect key="frame" x="59" y="461" width="84" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lo sentimos. No hemos encontrado productos asociados a tu búsqueda..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="w3L-eA-vpP">
+                                <rect key="frame" x="82" y="423" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="DyG-qN-UAS"/>
+                                    <constraint firstAttribute="height" constant="50" id="Hjz-x6-v9X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C6M-fU-n3R"/>
                         <color key="backgroundColor" red="1" green="0.94509803920000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="w3L-eA-vpP" firstAttribute="centerX" secondItem="P1h-oy-5M3" secondAttribute="centerX" id="3H8-gh-jRb"/>
                             <constraint firstItem="dRB-ni-azI" firstAttribute="top" secondItem="YSD-RS-qee" secondAttribute="bottom" constant="10" id="41L-A8-h07"/>
                             <constraint firstItem="YSD-RS-qee" firstAttribute="centerX" secondItem="P1h-oy-5M3" secondAttribute="centerX" id="6NP-dz-Cpb"/>
                             <constraint firstItem="82d-kN-RBz" firstAttribute="leading" secondItem="dRB-ni-azI" secondAttribute="trailing" constant="16" id="8ih-pz-fPb"/>
                             <constraint firstItem="Y5g-nv-sWZ" firstAttribute="top" secondItem="YSD-RS-qee" secondAttribute="bottom" constant="10" id="9bB-xL-aPk"/>
                             <constraint firstAttribute="trailing" secondItem="ZCj-up-9zn" secondAttribute="trailing" id="BG2-sl-hN3"/>
+                            <constraint firstItem="w3L-eA-vpP" firstAttribute="centerY" secondItem="P1h-oy-5M3" secondAttribute="centerY" id="DSE-wb-dtb"/>
                             <constraint firstAttribute="trailing" secondItem="ArT-91-x0z" secondAttribute="trailing" id="GXX-yA-KV5"/>
                             <constraint firstItem="YSD-RS-qee" firstAttribute="centerY" secondItem="P1h-oy-5M3" secondAttribute="centerY" constant="-40" id="K6r-tJ-yAe"/>
+                            <constraint firstItem="eUm-va-5QU" firstAttribute="centerY" secondItem="P1h-oy-5M3" secondAttribute="centerY" id="Mcs-7r-cVT"/>
                             <constraint firstItem="dRB-ni-azI" firstAttribute="leading" secondItem="Y5g-nv-sWZ" secondAttribute="trailing" constant="16" id="Nz2-7J-ASz"/>
                             <constraint firstItem="dRB-ni-azI" firstAttribute="centerX" secondItem="P1h-oy-5M3" secondAttribute="centerX" id="Pgm-h5-1vr"/>
                             <constraint firstItem="ArT-91-x0z" firstAttribute="top" secondItem="C6M-fU-n3R" secondAttribute="top" id="Pkj-Mr-Osr"/>
@@ -113,10 +134,12 @@
                             <constraint firstAttribute="bottom" secondItem="ZCj-up-9zn" secondAttribute="bottom" id="deh-RY-NVg"/>
                             <constraint firstItem="vR0-Bf-vYN" firstAttribute="centerY" secondItem="P1h-oy-5M3" secondAttribute="centerY" constant="-40" id="sbn-9C-kNY"/>
                             <constraint firstItem="vR0-Bf-vYN" firstAttribute="top" secondItem="C6M-fU-n3R" secondAttribute="top" priority="500" constant="24" id="tjM-gY-J5l"/>
+                            <constraint firstItem="eUm-va-5QU" firstAttribute="centerX" secondItem="P1h-oy-5M3" secondAttribute="centerX" id="unj-4q-t19"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0wt-mC-oYD"/>
                     <connections>
+                        <outlet property="animationView" destination="eUm-va-5QU" id="3Mw-Vb-DBN"/>
                         <outlet property="buyLabel" destination="82d-kN-RBz" id="Dv3-CB-Yek"/>
                         <outlet property="findLabel" destination="dRB-ni-azI" id="K7d-Of-yUA"/>
                         <outlet property="logoHeightConstraint" destination="eC1-63-3Ei" id="9VK-Hx-ein"/>
@@ -124,6 +147,7 @@
                         <outlet property="logoImageView" destination="YSD-RS-qee" id="zod-9d-0gx"/>
                         <outlet property="logoTopConstraint" destination="QbK-Td-CvY" id="ClC-hS-1lQ"/>
                         <outlet property="logoWidthConstraint" destination="LtO-bT-Bdf" id="AQl-0d-8OA"/>
+                        <outlet property="noResultsLb" destination="w3L-eA-vpP" id="a03-XO-YV3"/>
                         <outlet property="searchLabel" destination="Y5g-nv-sWZ" id="CvA-tc-jLH"/>
                         <outlet property="searchTf" destination="vR0-Bf-vYN" id="bTD-N3-dlj"/>
                         <outlet property="searchTfCenterYConstraint" destination="sbn-9C-kNY" id="yNS-9W-ZIm"/>
@@ -137,6 +161,9 @@
             <point key="canvasLocation" x="228.98550724637684" y="42.857142857142854"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="eUm-va-5QU"/>
+    </designables>
     <resources>
         <image name="logo__large_plus" width="268" height="68"/>
         <systemColor name="systemBackgroundColor">

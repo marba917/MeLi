@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Lottie
 
 class HomeViewController: UIViewController {
 
@@ -24,6 +25,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var logoWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var noResultsLb: UILabel!
     
     private let rxBag = DisposeBag()
     private var items : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
@@ -50,12 +53,20 @@ class HomeViewController: UIViewController {
         findLabel.alpha = 0
         searchLabel.alpha = 0
         buyLabel.alpha = 0
+        noResultsLb.alpha = 0
         
         //Adjusts constraints for the search textfield, so they can be changes later by an animation
         searchTfWidthConstraint.constant = 0
         searchTfCenterYConstraint.priority = UILayoutPriority(1000)
         searchTfTopConstraint.constant = Constants.margins * 2
         searchTfTopConstraint.priority = UILayoutPriority(500)
+        
+        //setups the lottie animation
+        animationView.animation = Animation.named("lottie-loading")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        animationView.alpha = 0
     }
     
     
@@ -96,20 +107,29 @@ class HomeViewController: UIViewController {
     
     private func searchProducts(searchText: String) {
         
+        animationView.alpha = 1 //show loading animation
+        items.accept([]) //clear previous search results
+        
         Api.searchProducts(searchText: searchText) { (response, products) in
+            
+            DispatchQueue.main.async {
+                self.animationView.alpha = 0  //hide loading animation after getting the api response
+            }
             
             switch response {
             
             case .ok:
-                print("ok")
+                
                 self.items.accept(products)
                 
                 DispatchQueue.main.async {
                     self.tableView.alpha = 1
+                    self.noResultsLb.alpha = products.isEmpty ? 1 : 0
                 }
                 
             case .error:
-                print("error")
+                
+                self.showAlertDefault(title: "ERROR", message: "Lo sentimos, tuvimos un problema con tu búsqueda. Por favor intenta nuevamente")
             }
         }
     }
