@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var noResultsLb: UILabel!
+    @IBOutlet weak var resultCountLb: UILabel!
     
     private let rxBag = DisposeBag()
     private var items : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
@@ -54,7 +55,9 @@ class HomeViewController: UIViewController {
         findLabel.alpha = 0
         searchLabel.alpha = 0
         buyLabel.alpha = 0
+        
         noResultsLb.alpha = 0
+        resultCountLb.alpha = 0
         
         //Adjusts constraints for the search textfield, so they can be changes later by an animation
         searchTfWidthConstraint.constant = 0
@@ -101,6 +104,27 @@ class HomeViewController: UIViewController {
             }
                            
         }.disposed(by: rxBag)
+        
+        //listens to changes on the product array to show the count label
+        _ = items.asObservable().subscribe(onNext:{
+            
+            print("new changes to the product array \($0.count)")
+            
+            DispatchQueue.main.async {
+                self.setResultCountLabel()
+            }
+        })
+    }
+    
+    
+    /**
+         Sets the text and alpha of the quantity label according to the value of the products array
+    */
+    
+    private func setResultCountLabel() {
+        
+        resultCountLb.text = "Mostrando \(items.value.count) de \(self.searchResult?.paging.total ?? 0)"
+        resultCountLb.alpha = items.value.isEmpty ? 0 : 1
     }
     
     
