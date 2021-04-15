@@ -36,22 +36,36 @@ class HomeViewController: UIViewController {
         showInitilAnimations()
     }
     
+    
+    /**
+         Initializes the UI elements to the initial state, before any animation occurs
+    */
+    
     private func setupUI() {
         
+        //Register the Product Cell within the tableView so it can be used as a custom cell
         tableView.register(nibName: "ProductCell")
         
+        //hide the labels so they can be shown later with an animation
         findLabel.alpha = 0
         searchLabel.alpha = 0
         buyLabel.alpha = 0
-        searchTfWidthConstraint.constant = 0
         
+        //Adjusts constraints for the search textfield, so they can be changes later by an animation
+        searchTfWidthConstraint.constant = 0
         searchTfCenterYConstraint.priority = UILayoutPriority(1000)
         searchTfTopConstraint.constant = Constants.margins * 2
         searchTfTopConstraint.priority = UILayoutPriority(500)
     }
     
+    
+    /**
+         Subscribe UI elements to RX in order to start listening for state changes
+    */
+    
     private func subscribeRxElements() {
         
+        //Listens to taps on the keyboard's search button and calls the search function
         searchTf.rx.controlEvent(.editingDidEndOnExit)
             .subscribe(onNext: { [weak self] () in
                 
@@ -61,15 +75,24 @@ class HomeViewController: UIViewController {
                 
             }).disposed(by: rxBag)
         
+        //Binds the tableView to the items array, so averytime the array changes, the tableView reloads the cells
         items.bind(to: tableView.rx.items(cellIdentifier: "ProductCell")) { [weak self] row, model, cell in
             
             guard let self = self, let cell = cell as? ProductCell else { return }
             self.tableView.rowHeight =  120
             cell.selectionStyle = .none
-            cell.product = model
+            cell.product = model //assign the Product model to the cell, so it can set the cell's UI elements
                            
         }.disposed(by: rxBag)
     }
+    
+    
+    /**
+         Calls the search API with the entered search string. Handles the completion block and updates the UI accordingly
+
+         - Parameters:
+            - searchText: The text query to be searched
+    */
     
     private func searchProducts(searchText: String) {
         
@@ -97,6 +120,11 @@ class HomeViewController: UIViewController {
 //MARK: - Animations
 
 extension HomeViewController {
+    
+    
+    /**
+         Chain of animations that are shown once the app loads
+    */
     
     private func showInitilAnimations() {
         
@@ -140,6 +168,11 @@ extension HomeViewController {
         }
 
     }
+    
+    
+    /**
+         Animation that positions the UI elements in the final state after the user makes the first search
+    */
     
     private func showEndAnimation() {
         

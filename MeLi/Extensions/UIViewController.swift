@@ -9,6 +9,12 @@ import UIKit
 
 extension UIViewController {
     
+    /**
+         Calculates the height of the unsafe are at the bottom of the screen
+
+         - Returns: The unsafe height as a CGFloat
+    */
+    
     func getBottomUnsafeAreaHeight() -> CGFloat {
         
         var bottomSafeAreaHeight: CGFloat = 0
@@ -18,18 +24,17 @@ extension UIViewController {
             let safeFrame = window.safeAreaLayoutGuide.layoutFrame
             bottomSafeAreaHeight = window.frame.maxY - safeFrame.maxY
             return bottomSafeAreaHeight
-        }
-        
-        var bottomSafeArea: CGFloat
-        
-        if #available(iOS 11.0, *) {
-            bottomSafeArea = view.safeAreaInsets.bottom
         } else {
-            bottomSafeArea = bottomLayoutGuide.length
+            return bottomLayoutGuide.length
         }
-        
-        return bottomSafeArea
     }
+    
+    
+    /**
+         Calculates the height of the unsafe are at the top of the screen
+
+         - Returns: The unsafe height as a CGFloat
+    */
     
     func getTopUnsafeAreaHeight() -> CGFloat {
         
@@ -40,17 +45,9 @@ extension UIViewController {
             let safeFrame = window.safeAreaLayoutGuide.layoutFrame
             topSafeAreaHeight = safeFrame.minY
             return topSafeAreaHeight
-        }
-        
-        var topSafeArea: CGFloat
-        
-        if #available(iOS 11.0, *) {
-            topSafeArea = view.safeAreaInsets.top
         } else {
-            topSafeArea = topLayoutGuide.length
+            return topLayoutGuide.length
         }
-        
-        return topSafeArea
     }
 
 }

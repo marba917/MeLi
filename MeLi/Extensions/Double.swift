@@ -9,6 +9,13 @@ import Foundation
 
 extension Double {
     
+    
+    /**
+         Formats the Double number as currency
+
+         - Returns: a String with the given number formatted as currency.
+    */
+    
     var formattedMoney: String {
         
         let formatter = NumberFormatter()

@@ -9,5 +9,6 @@ import UIKit
 
 public struct Constants {
     
+    ///the default margins for all the layouts
     static let margins: CGFloat = 24.0
 }

@@ -15,6 +15,11 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var shippingLabel: UILabel!
     
+    
+    /**
+         The Product object that contains all the information to set the UI. When setted, the UI will change accordingly
+    */
+    
     var product = Product() {
         
         didSet {
