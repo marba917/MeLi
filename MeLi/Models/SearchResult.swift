@@ -11,4 +11,5 @@ struct SearchResult: Codable {
     
     var query = ""
     var results = [Product]()
+    var paging = Paging()
 }

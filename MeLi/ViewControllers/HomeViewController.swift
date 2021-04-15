@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
     
     private let rxBag = DisposeBag()
     private var items : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
+    private var searchResult: SearchResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +94,12 @@ class HomeViewController: UIViewController {
             self.tableView.rowHeight =  120
             cell.selectionStyle = .none
             cell.product = model //assign the Product model to the cell, so it can set the cell's UI elements
+            
+            //Reached the bottom of the table, check if pagination available to show more rows
+            if row == self.items.value.count - 1 {
+                
+                self.searchMoreResults()
+            }
                            
         }.disposed(by: rxBag)
     }
@@ -110,7 +117,9 @@ class HomeViewController: UIViewController {
         animationView.alpha = 1 //show loading animation
         items.accept([]) //clear previous search results
         
-        Api.searchProducts(searchText: searchText) { (response, products) in
+        Api.searchProducts(searchText: searchText) { [weak self] (response, searchResult) in
+            
+            guard let self = self else { return }
             
             DispatchQueue.main.async {
                 self.animationView.alpha = 0  //hide loading animation after getting the api response
@@ -120,6 +129,8 @@ class HomeViewController: UIViewController {
             
             case .ok:
                 
+                self.searchResult = searchResult  //saves the searchResult globally in order to allow pagination
+                let products = searchResult?.results ?? []
                 self.items.accept(products)
                 
                 DispatchQueue.main.async {
@@ -130,6 +141,35 @@ class HomeViewController: UIViewController {
             case .error:
                 
                 self.showAlertDefault(title: "ERROR", message: "Lo sentimos, tuvimos un problema con tu búsqueda. Por favor intenta nuevamente")
+            }
+        }
+    }
+    
+    
+    /**
+         Checks if there are more available results. Calls the search API with the last saved query, and set the offset to the current amount of results. Handles the completion block and updates the UI accordingly
+    */
+    
+    private func searchMoreResults() {
+        
+        //Checks if the product count is lesser than the total amount of results for the query
+        guard let currentSearchResult = self.searchResult, items.value.count < currentSearchResult.paging.total else { return }
+        
+        Api.searchProducts(searchText: currentSearchResult.query, offset: items.value.count) { [weak self] (response, searchResult) in
+            
+            guard let self = self else { return }
+            
+            switch response {
+            
+            case .ok:
+                
+                var products = self.items.value
+                products.append(contentsOf: searchResult?.results ?? []) //merge current products with the new results
+                self.items.accept(products)
+                
+            case .error:
+                
+                print("Error loading more results...")
             }
         }
     }
@@ -214,5 +254,18 @@ extension HomeViewController {
             self.view.backgroundColor = .white
             self.view.layoutIfNeeded()
         }
+    }
+}
+
+
+
+
+//MARK: - Scrolling
+
+extension HomeViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        print("scrolling")
     }
 }

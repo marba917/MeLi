@@ -28,6 +28,7 @@
 		BEBE06C52626C39B004EAE02 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06C42626C39B004EAE02 /* Double.swift */; };
 		BED65AF12623FE1D00F0FC4F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */; };
 		BEFA0A962627FE8800D1DE17 /* lottie-loading.json in Resources */ = {isa = PBXBuildFile; fileRef = BEFA0A952627FE8800D1DE17 /* lottie-loading.json */; };
+		BEFA0A9B2628115200D1DE17 /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFA0A9A2628115200D1DE17 /* Paging.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		BEBE06C42626C39B004EAE02 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		BED65AF02623FE1D00F0FC4F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		BEFA0A952627FE8800D1DE17 /* lottie-loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lottie-loading.json"; sourceTree = "<group>"; };
+		BEFA0A9A2628115200D1DE17 /* Paging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				BEBE06A22626AE23004EAE02 /* Product.swift */,
 				BEBE06AA2626B38F004EAE02 /* SearchResult.swift */,
 				BEBE06BA2626BE09004EAE02 /* Shipping.swift */,
+				BEFA0A9A2628115200D1DE17 /* Paging.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				BE6668DE2623F0830013AB1C /* SceneDelegate.swift in Sources */,
 				BEBE06B62626BD96004EAE02 /* ProductCell.swift in Sources */,
 				BEBE06BB2626BE09004EAE02 /* Shipping.swift in Sources */,
+				BEFA0A9B2628115200D1DE17 /* Paging.swift in Sources */,
 				BEBE069A2626AC5C004EAE02 /* Api.swift in Sources */,
 				BED65AF12623FE1D00F0FC4F /* HomeViewController.swift in Sources */,
 			);

@@ -39,16 +39,17 @@ class Api {
          - Parameters:
             - searchText: The string query for the search
             - completionBlock: Code block in charge of handling the responses
+            - offset: Int parameter used for pagination
     */
     
-    static func searchProducts(searchText: String, completionBlock: @escaping (ResponseType,[Product]) -> Void) {
+    static func searchProducts(searchText: String, offset: Int = 0, completionBlock: @escaping (ResponseType,SearchResult?) -> Void) {
         
         let string = searchText.replacingOccurrences(of: " ", with: "+") //replaces spaces for + sign in order to allow multiple keywords
         
         //ensures the URL is correct
-        guard let url = URL(string: "\(Endpoints.search)\(string)") else {
+        guard let url = URL(string: "\(Endpoints.search)\(string)&offset=\(offset)") else {
             
-            completionBlock(.error,[])
+            completionBlock(.error,nil)
             return
         }
         
@@ -58,14 +59,14 @@ class Api {
             
             if let error = error {
                 print("Error searching for products: \(error)")
-                completionBlock(.error,[])
+                completionBlock(.error,nil)
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse,
                 (200...299).contains(httpResponse.statusCode) else {
                 print("Error with the response, unexpected status code")
-                completionBlock(.error,[])
+                completionBlock(.error,nil)
                 return
             }
             
@@ -73,11 +74,10 @@ class Api {
 
             if let data = data,
                 let search = try? JSONDecoder().decode(SearchResult.self, from: data) { //maps the data to a SearchResult object
-                completionBlock(.ok,search.results)
+                completionBlock(.ok,search)
             }
         }
         
         task.resume()
     }
-    
 }
