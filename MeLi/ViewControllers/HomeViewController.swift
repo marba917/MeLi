@@ -91,14 +91,13 @@ class HomeViewController: UIViewController {
         items.bind(to: tableView.rx.items(cellIdentifier: "ProductCell")) { [weak self] row, model, cell in
             
             guard let self = self, let cell = cell as? ProductCell else { return }
-            self.tableView.rowHeight =  120
             cell.selectionStyle = .none
             cell.product = model //assign the Product model to the cell, so it can set the cell's UI elements
             
             //Reached the bottom of the table, check if pagination available to show more rows
             if row == self.items.value.count - 1 {
                 
-                self.searchMoreResults()
+                self.searchMoreProducts()
             }
                            
         }.disposed(by: rxBag)
@@ -150,7 +149,7 @@ class HomeViewController: UIViewController {
          Checks if there are more available results. Calls the search API with the last saved query, and set the offset to the current amount of results. Handles the completion block and updates the UI accordingly
     */
     
-    private func searchMoreResults() {
+    private func searchMoreProducts() {
         
         //Checks if the product count is lesser than the total amount of results for the query
         guard let currentSearchResult = self.searchResult, items.value.count < currentSearchResult.paging.total else { return }
