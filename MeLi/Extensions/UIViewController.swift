@@ -65,5 +65,19 @@ extension UIViewController {
             self.present(alertController, animated: true, completion:nil)
         }
     }
+    
+    
+    /**
+         Allows you to obtain a view controller instance
+
+         - Parameters:
+            - from: The name of the Storyboard where the VC's UI is located
+            - id: VC's storyboard ID
+    */
+    
+    func getVC (from: String, withId id: String) -> UIViewController {
+        
+        return UIStoryboard(name: from, bundle: nil).instantiateViewController(withIdentifier: id)
+    }
 
 }

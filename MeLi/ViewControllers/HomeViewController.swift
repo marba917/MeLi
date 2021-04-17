@@ -25,13 +25,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var logoWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var animationView: AnimationView!
+    @IBOutlet weak var animationView: AnimationView! 
     @IBOutlet weak var noResultsLb: UILabel!
     @IBOutlet weak var resultCountLb: UILabel!
     
     private let rxBag = DisposeBag()
     private var items : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
-    private var searchResult: SearchResultResponse?
+    private var searchResult: SearchResultResponse? //viewmodel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,9 @@ class HomeViewController: UIViewController {
         showInitilAnimations()
     }
     
+    
+    
+    //MARK: - Functions
     
     /**
          Initializes the UI elements to the initial state, before any animation occurs
@@ -109,10 +112,10 @@ class HomeViewController: UIViewController {
         
         //Cell selection delegate
         tableView.rx.modelSelected(Product.self)
-            .subscribe(onNext: { [weak self] list in
+            .subscribe(onNext: { [weak self] product in
                 
                 guard let self = self else { return }
-                
+                self.goToProductDetails(productId: product.id, productName: product.title)
 
             }).disposed(by: rxBag)
         
@@ -132,7 +135,7 @@ class HomeViewController: UIViewController {
     /**
          Sets the text and alpha of the quantity label according to the value of the products array
     */
-    
+    //viewmodel
     private func setResultCountLabel() {
         
         resultCountLb.text = "Mostrando \(items.value.count) de \(self.searchResult?.paging.total ?? 0)"
@@ -152,7 +155,7 @@ class HomeViewController: UIViewController {
         animationView.alpha = 1 //show loading animation
         items.accept([]) //clear previous search results
         
-        Api.searchProducts(searchText: searchText) { [weak self] (response, searchResult) in
+        NetworkingHelper.searchProducts(searchText: searchText) { [weak self] (response, searchResult) in
             
             guard let self = self else { return }
             
@@ -190,7 +193,7 @@ class HomeViewController: UIViewController {
         //Checks if the product count is lesser than the total amount of results for the query
         guard let currentSearchResult = self.searchResult, items.value.count < currentSearchResult.paging.total else { return }
         
-        Api.searchProducts(searchText: currentSearchResult.query, offset: items.value.count) { [weak self] (response, searchResult) in
+        NetworkingHelper.searchProducts(searchText: currentSearchResult.query, offset: items.value.count) { [weak self] (response, searchResult) in
             
             guard let self = self else { return }
             

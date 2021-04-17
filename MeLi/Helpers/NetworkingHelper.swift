@@ -1,5 +1,5 @@
 //
-//  Api.swift
+//  NetworkingHelper.swift
 //  MeLi
 //
 //  Created by Mario Jaramillo on 13/04/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Api {
+class NetworkingHelper {
     
     
     /**
@@ -86,6 +86,15 @@ class Api {
         
         task.resume()
     }
+    
+    
+    /**
+         Api function in charge of making an api call to get the details about specific product
+
+         - Parameters:
+            - productId: The id of the selected product
+            - completionBlock: Code block in charge of handling the responses
+    */
     
     static func getProductDetails(productId: String, completionBlock: @escaping (ResponseType,Product?) -> Void) {
         

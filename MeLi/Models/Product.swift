@@ -17,4 +17,12 @@ struct Product: Codable {
     var thumbnail = ""
     var shipping = Shipping()
     var pictures: [Picture]? = nil
+    var sold_quantity = 0
+    var condition = ""
+    var attributes: [Attribute]? = nil
+    
+    func getCondition() -> String {
+        
+        return condition == "new" ? "Nuevo" : "Usado"
+    }
 }
