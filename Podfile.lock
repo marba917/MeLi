@@ -1,4 +1,10 @@
 PODS:
+  - ImageSlideshow (1.9.2):
+    - ImageSlideshow/Core (= 1.9.2)
+  - ImageSlideshow/Core (1.9.2)
+  - ImageSlideshow/Kingfisher (1.9.2):
+    - ImageSlideshow/Core
+    - Kingfisher (> 3.0)
   - Kingfisher (6.2.1)
   - lottie-ios (3.2.1)
   - RxCocoa (6.1.0):
@@ -9,6 +15,8 @@ PODS:
   - RxSwift (6.1.0)
 
 DEPENDENCIES:
+  - ImageSlideshow
+  - ImageSlideshow/Kingfisher
   - Kingfisher
   - lottie-ios
   - RxCocoa
@@ -16,6 +24,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - ImageSlideshow
     - Kingfisher
     - lottie-ios
     - RxCocoa
@@ -23,12 +32,13 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
 
-PODFILE CHECKSUM: 85d0fac78bc322701f036e5a104ca002003cbe90
+PODFILE CHECKSUM: 9dc21285d746c7b1dfc933653651f6bd5753a0dc
 
 COCOAPODS: 1.10.1

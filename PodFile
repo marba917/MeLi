@@ -6,4 +6,6 @@ pod 'Kingfisher'
 pod 'lottie-ios'
 pod 'RxSwift'
 pod 'RxCocoa'
+pod 'ImageSlideshow'
+pod 'ImageSlideshow/Kingfisher'
 end
