@@ -16,4 +16,5 @@ struct Product: Codable {
     var available_quantity = 0
     var thumbnail = ""
     var shipping = Shipping()
+    var pictures = [Picture]()
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchResult: Codable {
+struct SearchResultResponse: Codable {
     
     var query = ""
     var results = [Product]()

@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
     
     private let rxBag = DisposeBag()
     private var items : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
-    private var searchResult: SearchResult?
+    private var searchResult: SearchResultResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,6 +90,7 @@ class HomeViewController: UIViewController {
                 
             }).disposed(by: rxBag)
         
+        
         //Binds the tableView to the items array, so averytime the array changes, the tableView reloads the cells
         items.bind(to: tableView.rx.items(cellIdentifier: "ProductCell")) { [weak self] row, model, cell in
             
@@ -104,6 +105,17 @@ class HomeViewController: UIViewController {
             }
                            
         }.disposed(by: rxBag)
+        
+        
+        //Cell selection delegate
+        tableView.rx.modelSelected(Product.self)
+            .subscribe(onNext: { [weak self] list in
+                
+                guard let self = self else { return }
+                
+
+            }).disposed(by: rxBag)
+        
         
         //listens to changes on the product array to show the count label
         _ = items.asObservable().subscribe(onNext:{

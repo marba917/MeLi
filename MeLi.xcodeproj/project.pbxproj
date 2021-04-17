@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1A6E3B111CE69AE14A8E10FA /* Pods_MeLi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16255BE91A2E6EFA08766DFE /* Pods_MeLi.framework */; };
+		BE35E8A5262A840E000355A1 /* ProductDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE35E8A4262A840E000355A1 /* ProductDetailsResponse.swift */; };
+		BE35E8B8262A89A2000355A1 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE35E8B7262A89A2000355A1 /* Picture.swift */; };
 		BE6668DC2623F0830013AB1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668DB2623F0830013AB1C /* AppDelegate.swift */; };
 		BE6668DE2623F0830013AB1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6668DD2623F0830013AB1C /* SceneDelegate.swift */; };
 		BE6668E32623F0830013AB1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE6668E12623F0830013AB1C /* Main.storyboard */; };
@@ -20,7 +22,7 @@
 		BEBE069426269357004EAE02 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE069326269357004EAE02 /* UIViewController.swift */; };
 		BEBE069A2626AC5C004EAE02 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06992626AC5C004EAE02 /* Api.swift */; };
 		BEBE06A32626AE23004EAE02 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06A22626AE23004EAE02 /* Product.swift */; };
-		BEBE06AB2626B38F004EAE02 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06AA2626B38F004EAE02 /* SearchResult.swift */; };
+		BEBE06AB2626B38F004EAE02 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06AA2626B38F004EAE02 /* SearchResultResponse.swift */; };
 		BEBE06B12626BD74004EAE02 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEBE06B02626BD74004EAE02 /* ProductCell.xib */; };
 		BEBE06B62626BD96004EAE02 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06B52626BD96004EAE02 /* ProductCell.swift */; };
 		BEBE06BB2626BE09004EAE02 /* Shipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE06BA2626BE09004EAE02 /* Shipping.swift */; };
@@ -52,6 +54,8 @@
 		11440601261EFFED8BFF7A53 /* Pods-MeLi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeLi.release.xcconfig"; path = "Target Support Files/Pods-MeLi/Pods-MeLi.release.xcconfig"; sourceTree = "<group>"; };
 		16255BE91A2E6EFA08766DFE /* Pods_MeLi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeLi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A484A19AD11C6B05FB5F280B /* Pods-MeLi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeLi.debug.xcconfig"; path = "Target Support Files/Pods-MeLi/Pods-MeLi.debug.xcconfig"; sourceTree = "<group>"; };
+		BE35E8A4262A840E000355A1 /* ProductDetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsResponse.swift; sourceTree = "<group>"; };
+		BE35E8B7262A89A2000355A1 /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
 		BE6668D82623F0830013AB1C /* MeLi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeLi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE6668DB2623F0830013AB1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE6668DD2623F0830013AB1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +74,7 @@
 		BEBE069326269357004EAE02 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		BEBE06992626AC5C004EAE02 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		BEBE06A22626AE23004EAE02 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		BEBE06AA2626B38F004EAE02 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		BEBE06AA2626B38F004EAE02 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
 		BEBE06B02626BD74004EAE02 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		BEBE06B52626BD96004EAE02 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		BEBE06BA2626BE09004EAE02 /* Shipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shipping.swift; sourceTree = "<group>"; };
@@ -215,9 +219,11 @@
 			isa = PBXGroup;
 			children = (
 				BEBE06A22626AE23004EAE02 /* Product.swift */,
-				BEBE06AA2626B38F004EAE02 /* SearchResult.swift */,
+				BEBE06AA2626B38F004EAE02 /* SearchResultResponse.swift */,
 				BEBE06BA2626BE09004EAE02 /* Shipping.swift */,
 				BEFA0A9A2628115200D1DE17 /* Paging.swift */,
+				BE35E8A4262A840E000355A1 /* ProductDetailsResponse.swift */,
+				BE35E8B7262A89A2000355A1 /* Picture.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -424,12 +430,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEBE068C26268E79004EAE02 /* Constants.swift in Sources */,
-				BEBE06AB2626B38F004EAE02 /* SearchResult.swift in Sources */,
+				BEBE06AB2626B38F004EAE02 /* SearchResultResponse.swift in Sources */,
 				BEBE06A32626AE23004EAE02 /* Product.swift in Sources */,
 				BEBE068626268630004EAE02 /* UIView.swift in Sources */,
+				BE35E8B8262A89A2000355A1 /* Picture.swift in Sources */,
 				BEBE06C52626C39B004EAE02 /* Double.swift in Sources */,
 				BEBE069426269357004EAE02 /* UIViewController.swift in Sources */,
 				BEBE06C02626C16E004EAE02 /* UITableView.swift in Sources */,
+				BE35E8A5262A840E000355A1 /* ProductDetailsResponse.swift in Sources */,
 				BE6668DC2623F0830013AB1C /* AppDelegate.swift in Sources */,
 				BE6668DE2623F0830013AB1C /* SceneDelegate.swift in Sources */,
 				BEBE06B62626BD96004EAE02 /* ProductCell.swift in Sources */,

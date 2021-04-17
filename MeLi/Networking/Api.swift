@@ -16,8 +16,9 @@ class Api {
     
     class Endpoints {
         
-        static let HOST = "https://api.mercadolibre.com/sites/MLA/"
-        static let search = HOST + "search?q="
+        static let HOST = "https://api.mercadolibre.com/"
+        static let search = HOST + "sites/MLA/search?q="
+        static let productDetails = HOST + "items?ids="
     }
     
     
@@ -42,7 +43,7 @@ class Api {
             - offset: Int parameter used for pagination
     */
     
-    static func searchProducts(searchText: String, offset: Int = 0, completionBlock: @escaping (ResponseType,SearchResult?) -> Void) {
+    static func searchProducts(searchText: String, offset: Int = 0, completionBlock: @escaping (ResponseType,SearchResultResponse?) -> Void) {
         
         let string = searchText.replacingOccurrences(of: " ", with: "+") //replaces spaces for + sign in order to allow multiple keywords
         
@@ -73,8 +74,45 @@ class Api {
             //TODO: Handle other status codes
 
             if let data = data,
-                let search = try? JSONDecoder().decode(SearchResult.self, from: data) { //maps the data to a SearchResult object
+                let search = try? JSONDecoder().decode(SearchResultResponse.self, from: data) { //maps the data to a SearchResult object
                 completionBlock(.ok,search)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    static func getProductDetails(productId: String, completionBlock: @escaping (ResponseType,Product?) -> Void) {
+        
+        //ensures the URL is correct
+        guard let url = URL(string: "\(Endpoints.productDetails)\(productId)") else {
+            
+            completionBlock(.error,nil)
+            return
+        }
+        
+        print("Getting product details: \(productId) URL: \(url)")
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let error = error {
+                print("Error getting product details: \(error)")
+                completionBlock(.error,nil)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+                print("Error with the response, unexpected status code")
+                completionBlock(.error,nil)
+                return
+            }
+            
+            //TODO: Handle other status codes
+
+            if let data = data,
+                let response = try? JSONDecoder().decode([ProductDetailsResponse].self, from: data) { //maps the data to a ProductDetailsResponse object
+                completionBlock(.ok,response.first?.body)
             }
         }
         
