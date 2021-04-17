@@ -73,6 +73,10 @@ class ProductDetailsViewController: UIViewController {
     }
     
     
+    /**
+         Shows the image in full screen mode
+    */
+    
     @objc private func didTapImage() {
         
         fullscreenImage.initialPage = 0
@@ -122,6 +126,8 @@ class ProductDetailsViewController: UIViewController {
         conditionLb.text = "\(product.getCondition()) | \(product.sold_quantity) vendidos"
         stockLb.text = "Stock disponible: \(product.available_quantity)"
         
+        
+        //adds subviews with the attributes information
         product.attributes?.forEach({ (attribute) in
 
             let attView = AttributeView.fromNib()
@@ -130,6 +136,8 @@ class ProductDetailsViewController: UIViewController {
             self.mainVerticalSv.addArrangedSubview(attView)
         })
         
+        
+        //if the product has images, adds them to the image rotator
         guard let pictures = product.pictures else { return }
         
         for picture in pictures {
