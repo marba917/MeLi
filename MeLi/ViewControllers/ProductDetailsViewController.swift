@@ -96,8 +96,8 @@ class ProductDetailsViewController: UIViewController {
         
         self.mainVerticalSv.alpha = 1
         priceLb.text = product.price.formattedMoney
-        conditionLb.text = "\(product.getConditionName()) | \(product.sold_quantity) vendidos"
-        stockLb.text = "Stock disponible: \(product.available_quantity)"
+        conditionLb.text = productDetailsViewModel.getConditionLabelText(product: product)
+        stockLb.text = productDetailsViewModel.getAvailableStockText(product: product)
         
         //adds subviews with the attributes information
         product.attributes?.forEach({ (attribute) in

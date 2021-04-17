@@ -11,7 +11,7 @@ import RxCocoa
 class HomeViewModel {
     
     var items : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
-    var searchResult: SearchResultResponse? //viewmodel
+    var searchResult: SearchResultResponse? 
     var delegate: HomeViewModelDelegate?
     
     

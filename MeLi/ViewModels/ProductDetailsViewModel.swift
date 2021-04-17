@@ -42,6 +42,17 @@ class ProductDetailsViewModel {
         }
     }
     
+    
+    func getAvailableStockText(product: Product) -> String {
+        
+        return "Stock disponible: \(product.available_quantity)"
+    }
+    
+    func getConditionLabelText(product: Product) -> String {
+        
+        return "\(product.getConditionName()) | \(product.sold_quantity) vendidos"
+    }
+    
 }
 
 
