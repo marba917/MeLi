@@ -8,3 +8,5 @@ To install:
 3. run pod install
 
 xCode 14.2 or later recommended
+
+Developed by Mario Jaramillo J
