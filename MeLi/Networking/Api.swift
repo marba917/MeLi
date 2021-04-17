@@ -76,6 +76,11 @@ class Api {
             if let data = data,
                 let search = try? JSONDecoder().decode(SearchResultResponse.self, from: data) { //maps the data to a SearchResult object
                 completionBlock(.ok,search)
+                
+            } else {
+                
+                print("Error: Could not parse json data to model object")
+                completionBlock(.error,nil)
             }
         }
         

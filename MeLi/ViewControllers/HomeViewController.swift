@@ -241,9 +241,15 @@ extension HomeViewController {
                     
                 } completion: { (_) in
                     
+                    self.logoImageVerticalConstraint.constant = -120
+                    self.searchLabel.alpha = 0
+                    self.findLabel.alpha = 0
+                    self.buyLabel.alpha = 0
+                
                     UIView.animate(withDuration: 0.4) {
                         
-                        self.logoImageView.alpha = 0
+                        //self.logoImageView.alpha = 0
+                        self.view.layoutIfNeeded()
                         
                     } completion: { (_) in
                         
