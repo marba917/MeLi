@@ -20,17 +20,17 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var stockLb: UILabel!
     @IBOutlet weak var animationView: AnimationView!
     
-    var productId: String?
-    var productName: String?
+    var productDetailsViewModel = ProductDetailsViewModel()
     private var fullscreenImage = FullScreenSlideshowViewController()
-    private var mediaArray = [InputSource]()
     private var pageIndicator = UIPageControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        productDetailsViewModel.delegate = self
+        
         setupUI()
-        getProductInfo()
+        productDetailsViewModel.getProductInfo()
     }
     
 
@@ -50,7 +50,7 @@ class ProductDetailsViewController: UIViewController {
     
     private func setupUI() {
         
-        productNameLb.text = productName ?? ""
+        productNameLb.text = productDetailsViewModel.productName ?? ""
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTapImage))
         imageRotator.addGestureRecognizer(gestureRecognizer)
@@ -70,6 +70,9 @@ class ProductDetailsViewController: UIViewController {
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .loop
         animationView.play()
+        
+        animationView.alpha = 1 //shows the loading animation when the view is loaded
+        mainVerticalSv.alpha = 0 
     }
     
     
@@ -84,37 +87,6 @@ class ProductDetailsViewController: UIViewController {
     }
     
     
-    /**
-         Calls the network helpoer to get the details about specific product
-    */
-    
-    private func getProductInfo() {
-        
-        guard let productId = productId else { return }
-        
-        NetworkingHelper.getProductDetails(productId: productId) { [weak self] (response, product) in
-            
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                self.animationView.alpha = 0
-            }
-            
-            if response  == .ok {
-                
-                guard let product = product else { return }
-                
-                DispatchQueue.main.async {
-                    self.setProductInfo(product: product)
-                }
-                
-            } else {
-                
-                self.showAlertDefault(title: "Error", message: "Tuvimos un problema cargando la información del producto. Por favor intenta nuevamente.")
-            }
-        }
-    }
-    
     
     /**
          Updates the UI with the information from the product object
@@ -122,10 +94,10 @@ class ProductDetailsViewController: UIViewController {
     
     private func setProductInfo(product: Product) {
         
+        self.mainVerticalSv.alpha = 1
         priceLb.text = product.price.formattedMoney
         conditionLb.text = "\(product.getCondition()) | \(product.sold_quantity) vendidos"
         stockLb.text = "Stock disponible: \(product.available_quantity)"
-        
         
         //adds subviews with the attributes information
         product.attributes?.forEach({ (attribute) in
@@ -143,13 +115,38 @@ class ProductDetailsViewController: UIViewController {
         for picture in pictures {
             
             if let source = KingfisherSource(urlString: picture.url) {
-                mediaArray.append(source)
+                productDetailsViewModel.mediaArray.append(source)
             }
         }
         
-        imageRotator.setImageInputs(mediaArray)
-        fullscreenImage.inputs = mediaArray
+        imageRotator.setImageInputs(productDetailsViewModel.mediaArray)
+        fullscreenImage.inputs = productDetailsViewModel.mediaArray
     }
     
 
+}
+
+
+
+//MARK: - ProductDetailsViewModelDelegate methods
+
+extension ProductDetailsViewController: ProductDetailsViewModelDelegate {
+    
+    func didFinishLoadingProductInfo(product: Product?) {
+        
+        DispatchQueue.main.async {
+            
+            self.animationView.alpha = 0
+            
+            guard let product = product else {
+                
+                self.showAlertDefault(title: "Error", message: "Tuvimos un problema cargando la información del producto. Por favor intenta nuevamente.")
+                self.mainVerticalSv.alpha = 0
+                return
+            }
+            
+            self.setProductInfo(product: product)
+        }
+    }
+    
 }

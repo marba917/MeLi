@@ -37,8 +37,8 @@ extension UIViewController {
     func goToProductDetails(productId: String, productName: String) {
         
         let vc = getVC(from: "ProductDetails", withId: "ProductDetailsViewController") as! ProductDetailsViewController
-        vc.productId = productId
-        vc.productName = productName
+        vc.productDetailsViewModel.productId = productId
+        vc.productDetailsViewModel.productName = productName
         show(vc, sender: self)
     }
     

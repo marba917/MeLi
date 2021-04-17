@@ -30,12 +30,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var resultCountLb: UILabel!
     
     private let rxBag = DisposeBag()
-    private var items : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
-    private var searchResult: SearchResultResponse? //viewmodel
+    private var homeViewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        homeViewModel.delegate = self
+        
         setupUI()
         subscribeRxElements()
         showInitilAnimations()
@@ -89,22 +90,24 @@ class HomeViewController: UIViewController {
                 
                 guard let self = self, let text = self.searchTf.text, !text.isEmpty else { return }
                 self.showEndAnimation()
-                self.searchProducts(searchText: text)
+                self.animationView.alpha = 1 //show loading animation
+                self.noResultsLb.alpha = 0
+                self.homeViewModel.searchProducts(searchText: text)
                 
             }).disposed(by: rxBag)
         
         
         //Binds the tableView to the items array, so averytime the array changes, the tableView reloads the cells
-        items.bind(to: tableView.rx.items(cellIdentifier: "ProductCell")) { [weak self] row, model, cell in
+        homeViewModel.items.bind(to: tableView.rx.items(cellIdentifier: "ProductCell")) { [weak self] row, model, cell in
             
             guard let self = self, let cell = cell as? ProductCell else { return }
             cell.selectionStyle = .none
             cell.product = model //assign the Product model to the cell, so it can set the cell's UI elements
             
             //Reached the bottom of the table, check if pagination available to show more rows
-            if row == self.items.value.count - 1 {
+            if row == self.homeViewModel.items.value.count - 1 {
                 
-                self.searchMoreProducts()
+                self.homeViewModel.searchMoreProducts()
             }
                            
         }.disposed(by: rxBag)
@@ -121,7 +124,7 @@ class HomeViewController: UIViewController {
         
         
         //listens to changes on the product array to show the count label
-        _ = items.asObservable().subscribe(onNext:{
+        _ = homeViewModel.items.asObservable().subscribe(onNext:{
             
             print("new changes to the product array \($0.count)")
             
@@ -135,82 +138,13 @@ class HomeViewController: UIViewController {
     /**
          Sets the text and alpha of the quantity label according to the value of the products array
     */
-    //viewmodel
+    
     private func setResultCountLabel() {
         
-        resultCountLb.text = "Mostrando \(items.value.count) de \(self.searchResult?.paging.total ?? 0)"
-        resultCountLb.alpha = items.value.isEmpty ? 0 : 1
+        resultCountLb.text = homeViewModel.getProductShowingString()
+        resultCountLb.alpha = homeViewModel.getProductShowingAlpha()
     }
     
-    
-    /**
-         Calls the search API with the entered search string. Handles the completion block and updates the UI accordingly
-
-         - Parameters:
-            - searchText: The text query to be searched
-    */
-    
-    private func searchProducts(searchText: String) {
-        
-        animationView.alpha = 1 //show loading animation
-        items.accept([]) //clear previous search results
-        
-        NetworkingHelper.searchProducts(searchText: searchText) { [weak self] (response, searchResult) in
-            
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                self.animationView.alpha = 0  //hide loading animation after getting the api response
-            }
-            
-            switch response {
-            
-            case .ok:
-                
-                self.searchResult = searchResult  //saves the searchResult globally in order to allow pagination
-                let products = searchResult?.results ?? []
-                self.items.accept(products)
-                
-                DispatchQueue.main.async {
-                    self.tableView.alpha = 1
-                    self.noResultsLb.alpha = products.isEmpty ? 1 : 0
-                }
-                
-            case .error:
-                
-                self.showAlertDefault(title: "ERROR", message: "Lo sentimos, tuvimos un problema con tu búsqueda. Por favor intenta nuevamente")
-            }
-        }
-    }
-    
-    
-    /**
-         Checks if there are more available results. Calls the search API with the last saved query, and set the offset to the current amount of results. Handles the completion block and updates the UI accordingly
-    */
-    
-    private func searchMoreProducts() {
-        
-        //Checks if the product count is lesser than the total amount of results for the query
-        guard let currentSearchResult = self.searchResult, items.value.count < currentSearchResult.paging.total else { return }
-        
-        NetworkingHelper.searchProducts(searchText: currentSearchResult.query, offset: items.value.count) { [weak self] (response, searchResult) in
-            
-            guard let self = self else { return }
-            
-            switch response {
-            
-            case .ok:
-                
-                var products = self.items.value
-                products.append(contentsOf: searchResult?.results ?? []) //merge current products with the new results
-                self.items.accept(products)
-                
-            case .error:
-                
-                print("Error loading more results...")
-            }
-        }
-    }
 }
 
 
@@ -304,12 +238,31 @@ extension HomeViewController {
 
 
 
-//MARK: - Scrolling
+//MARK: - HomeViewModelDelegate methods
 
-extension HomeViewController: UIScrollViewDelegate {
+extension HomeViewController: HomeViewModelDelegate {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func didFinishSearching(error: Bool) {
         
-        print("scrolling")
+        DispatchQueue.main.async {
+            
+            self.animationView.alpha = 0  //hide loading animation after getting the api response
+            
+            if error {
+                
+                self.showAlertDefault(title: "ERROR", message: "Lo sentimos, tuvimos un problema con tu búsqueda. Por favor intenta nuevamente")
+                
+            } else {
+                
+                self.tableView.alpha = 1
+                self.noResultsLb.alpha = self.homeViewModel.areProductsAvailable() ? 0 : 1
+            }
+        }
     }
+    
+    func didFinishLoadingMoreProducts(error: Bool) {
+        
+        
+    }
+    
 }
