@@ -72,7 +72,7 @@ class ProductDetailsViewController: UIViewController {
         animationView.play()
         
         animationView.alpha = 1 //shows the loading animation when the view is loaded
-        mainVerticalSv.alpha = 0 
+        mainVerticalSv.alpha = 0
     }
     
     
@@ -96,7 +96,7 @@ class ProductDetailsViewController: UIViewController {
         
         self.mainVerticalSv.alpha = 1
         priceLb.text = product.price.formattedMoney
-        conditionLb.text = "\(product.getCondition()) | \(product.sold_quantity) vendidos"
+        conditionLb.text = "\(product.getConditionName()) | \(product.sold_quantity) vendidos"
         stockLb.text = "Stock disponible: \(product.available_quantity)"
         
         //adds subviews with the attributes information

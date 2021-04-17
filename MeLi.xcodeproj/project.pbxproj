@@ -48,13 +48,6 @@
 			remoteGlobalIDString = BE6668D72623F0830013AB1C;
 			remoteInfo = MeLi;
 		};
-		BE6668FA2623F0840013AB1C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE6668D02623F0830013AB1C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE6668D72623F0830013AB1C;
-			remoteInfo = MeLi;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +74,6 @@
 		BE6668EE2623F0840013AB1C /* MeLiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeLiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE6668F22623F0840013AB1C /* MeLiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiTests.swift; sourceTree = "<group>"; };
 		BE6668F42623F0840013AB1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE6668F92623F0840013AB1C /* MeLiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeLiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEBE068526268630004EAE02 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		BEBE068B26268E79004EAE02 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BEBE069326269357004EAE02 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -108,13 +100,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BE6668EB2623F0840013AB1C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE6668F62623F0840013AB1C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -185,7 +170,6 @@
 			children = (
 				BE6668D82623F0830013AB1C /* MeLi.app */,
 				BE6668EE2623F0840013AB1C /* MeLiTests.xctest */,
-				BE6668F92623F0840013AB1C /* MeLiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,24 +312,6 @@
 			productReference = BE6668EE2623F0840013AB1C /* MeLiTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BE6668F82623F0840013AB1C /* MeLiUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BE6669082623F0840013AB1C /* Build configuration list for PBXNativeTarget "MeLiUITests" */;
-			buildPhases = (
-				BE6668F52623F0840013AB1C /* Sources */,
-				BE6668F62623F0840013AB1C /* Frameworks */,
-				BE6668F72623F0840013AB1C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BE6668FB2623F0840013AB1C /* PBXTargetDependency */,
-			);
-			name = MeLiUITests;
-			productName = MeLiUITests;
-			productReference = BE6668F92623F0840013AB1C /* MeLiUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -359,10 +325,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					BE6668ED2623F0840013AB1C = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = BE6668D72623F0830013AB1C;
-					};
-					BE6668F82623F0840013AB1C = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = BE6668D72623F0830013AB1C;
 					};
@@ -383,7 +345,6 @@
 			targets = (
 				BE6668D72623F0830013AB1C /* MeLi */,
 				BE6668ED2623F0840013AB1C /* MeLiTests */,
-				BE6668F82623F0840013AB1C /* MeLiUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -404,13 +365,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		BE6668EC2623F0840013AB1C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE6668F72623F0840013AB1C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -499,13 +453,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE6668F52623F0840013AB1C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -513,11 +460,6 @@
 			isa = PBXTargetDependency;
 			target = BE6668D72623F0830013AB1C /* MeLi */;
 			targetProxy = BE6668EF2623F0840013AB1C /* PBXContainerItemProxy */;
-		};
-		BE6668FB2623F0840013AB1C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE6668D72623F0830013AB1C /* MeLi */;
-			targetProxy = BE6668FA2623F0840013AB1C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -707,7 +649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C4BPCW9KZS;
 				INFOPLIST_FILE = MeLiTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -729,7 +671,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C4BPCW9KZS;
 				INFOPLIST_FILE = MeLiTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -740,46 +682,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeLi.app/MeLi";
-			};
-			name = Release;
-		};
-		BE6669092623F0840013AB1C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C4BPCW9KZS;
-				INFOPLIST_FILE = MeLiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mariojapps.MeLiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MeLi;
-			};
-			name = Debug;
-		};
-		BE66690A2623F0840013AB1C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C4BPCW9KZS;
-				INFOPLIST_FILE = MeLiUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mariojapps.MeLiUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MeLi;
 			};
 			name = Release;
 		};
@@ -809,15 +711,6 @@
 			buildConfigurations = (
 				BE6669062623F0840013AB1C /* Debug */,
 				BE6669072623F0840013AB1C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BE6669082623F0840013AB1C /* Build configuration list for PBXNativeTarget "MeLiUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BE6669092623F0840013AB1C /* Debug */,
-				BE66690A2623F0840013AB1C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

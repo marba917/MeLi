@@ -21,7 +21,7 @@ struct Product: Codable {
     var condition = ""
     var attributes: [Attribute]? = nil
     
-    func getCondition() -> String {
+    func getConditionName() -> String {
         
         return condition == "new" ? "Nuevo" : "Usado"
     }
